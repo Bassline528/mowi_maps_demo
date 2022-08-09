@@ -10,31 +10,12 @@ part 'location_state.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
   
-
   LocationBloc() : super( const LocationState() ) {
-
-
-    
-    on<OnNewUserLocationEvent>((event, emit) {
-
-      emit( 
-        state.copyWith(
-          lastKnownLocation: event.newLocation,
-
-        ) 
-      );
-
-    });
-
+    on<OnNewUserLocationEvent>((event, emit) => emit(state.copyWith(lastKnownLocation: event.newLocation)));
   }
 
-
-  Future getCurrentPosition() async {
+  Future<void> getCurrentPosition() async {
     final position = await Geolocator.getCurrentPosition();
-    add( OnNewUserLocationEvent( LatLng( position.latitude, position.longitude ) ) );
+    add(OnNewUserLocationEvent(LatLng(position.latitude, position.longitude)));
   }
-
-
-
-
 }
