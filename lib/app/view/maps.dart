@@ -8,8 +8,6 @@ import '../blocs/location/location_bloc.dart';
 
 class MapScreen extends StatefulWidget {
 
-    
-
   @override
   State<MapScreen> createState() => _MapScreenState();
 }
@@ -22,7 +20,9 @@ class _MapScreenState extends State<MapScreen> {
     super.initState();
 
     locationBloc = BlocProvider.of<LocationBloc>(context);
-    locationBloc.getCurrentPosition();
+
+    // Al ingresar a esta pagina solicito la ubicacion del usuario 
+    locationBloc.getCurrentPosition(); 
 
   }
 
@@ -42,9 +42,9 @@ class _MapScreenState extends State<MapScreen> {
               child: GoogleMap(
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
-                markers: getmarkers(),
+                markers: getmarkers(), // Aca se pone los marcadores
                 initialCameraPosition: CameraPosition(
-                  target: locationState.lastKnownLocation!,
+                  target: locationState.lastKnownLocation!, // Aca ingreso la localizacion obtenida al llamar la funcion getCurrentPosition();
                   zoom: 15
                 ),
               ),
