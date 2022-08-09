@@ -8,12 +8,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:testmaps/app/blocs/blocs.dart';
 import 'package:testmaps/app/view/views.dart';
 import 'package:testmaps/l10n/l10n.dart';
-
-import '../blocs/blocs.dart';
-
-
 
 class App extends StatelessWidget {
   const App({super.key});
